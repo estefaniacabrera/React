@@ -3,9 +3,12 @@ import { ItemList } from './components/ItemListContainer/ItemList';
 
 
 
-function AppEcommerce() { 
+function AppEcommerce() {
+
     return (
-        <ItemList/>
+        <>
+            <ItemList />
+        </>
     );
 }
 
