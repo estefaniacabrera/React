@@ -1,0 +1,23 @@
+#navbar ul {
+  margin: 5;
+  padding: 15px;
+  list-style-type: none;
+  text-align: center;
+  background-color: white;
+}
+
+#navbar ul li {
+  display: inline;
+}
+
+#navbar ul li a {
+  text-decoration: none;
+  padding: 0.2em 1em;
+  color: black;
+  background-color: white;
+}
+
+#navbar ul li a:hover {
+  color: #000;
+  background-color: #fff;
+}

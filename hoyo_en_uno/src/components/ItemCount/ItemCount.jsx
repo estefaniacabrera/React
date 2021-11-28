@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-const ItemCount = ({ initial, initialstock, AddCart }) => {
+ const ItemCount = ({ initialstock}) => {
     const [count, setCount] = useState(1)
 
     function SumProd() {
@@ -9,12 +9,12 @@ const ItemCount = ({ initial, initialstock, AddCart }) => {
         } 
     }
     function Subtract() {
-        if (count < initialstock && count > 0) {
+        if (count > 0) {
             setCount (count - 1)
         } 
     }
     function Agregar() {
-        AddCart(count)
+        console.log(count);
         setCount(1)
     }
 

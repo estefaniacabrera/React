@@ -1,16 +1,20 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import AppEcommerce from './AppEcommerce';
 import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/Details/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 
 function App() {
   return (
-    <div className="App">
-      <ItemListContainer greeting={'HOYO EN UNO GOLF'} />
-      <NavBar/>
-      <AppEcommerce/>
-    </div>
+    <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route exact path="/" element={<ItemListContainer />} />
+          <Route path="categoria/:catIdParams" element={<ItemListContainer />} />
+          <Route path="item/:itemIdParams" element={<ItemDetailContainer />} />
+        </Routes>
+    </BrowserRouter>
   );
 }
 
