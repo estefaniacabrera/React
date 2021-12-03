@@ -23,7 +23,9 @@ const NavBar = () => {
                     <Link to="/categoria/accesorios">ACCESORIOS</Link>
                 </li>
                 <li>
-                    <BagWidget/>
+                    <Link to="/cart">
+                        <BagWidget />
+                    </Link> 
                 </li>
             </ul>
             

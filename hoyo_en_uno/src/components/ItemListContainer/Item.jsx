@@ -2,9 +2,10 @@ import React from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
-const Item = (item) => {
+const Item = ({ item }) => {
     return (
-        <><div>
+        <>
+            <div>
             <div className="col">
                 <div key={item.id} className="row row-cols-1 row-cols-md-3 g-4"> 
                     <div className="card">
@@ -22,7 +23,7 @@ const Item = (item) => {
                     </div>
                 </div>
             </div>  
-        </div></>
+            </div></>
         
     )
 }

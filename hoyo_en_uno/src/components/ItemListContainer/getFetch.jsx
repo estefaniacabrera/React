@@ -21,7 +21,7 @@ const ListaProductos = [
       name: 'Putter Taylormade Spider FCG',
       price: '$49.500',
       stock: 10,
-      foto: 'https://taylormadegolf.com.my/images/detailed/1085/GF1240100618_1.jpg'
+      foto: 'https://http2.mlstatic.com/D_NQ_NP_844841-MLA44545181953_012021-O.webp'
     },
     {
       id: 4,
@@ -30,7 +30,15 @@ const ListaProductos = [
       price: '$3.199',
       stock: 10,
       foto: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/811/865/products/weather-spann-cstore_21-33d0b045838203a3a515494731885091-480-0.jpg'
-    },
+  },
+  {
+    id: 4,
+    categoria: 'accesorios',
+    name: 'Porta Tee (tee Holder)',
+    price: '$699',
+    stock: 10,
+    foto: 'https://http2.mlstatic.com/D_NQ_NP_2X_999008-MLA31584114002_072019-F.webp'
+  },
 
 ];
 

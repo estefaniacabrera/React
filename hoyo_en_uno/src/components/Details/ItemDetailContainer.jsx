@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import getFetch from '../ItemListContainer/getFetch';
+import Load from '../ItemListContainer/Load';
 import ItemDetails from './ItemDetails';
 
 
@@ -13,8 +14,8 @@ const ItemDetailContainer = () =>{
 
       useEffect(() => {
 
-          getFetch.then((prodEncontrado)=>{
-              setProductoIndividual(prodEncontrado) 
+          getFetch.then((data) => {
+              setProductoIndividual(data.find(prod => prod.id === parseInt(itemIdParams))) 
           })
             .catch((error)=>{
                 console.log(error);
@@ -30,15 +31,12 @@ const ItemDetailContainer = () =>{
 
     return(
     <>
-        <p style={{fontSize: 20, color: "black"}}> 
-            Lista 
-        </p>
         <div>
-            {loading 
+                {loading
                 ? 
-            <h1>Cargando..</h1> 
+            <Load/> 
                 : 
-            <ItemDetails item={productoIndividual}/> }
+                    <ItemDetails item={productoIndividual}/> }
         </div>
     </>
     )
