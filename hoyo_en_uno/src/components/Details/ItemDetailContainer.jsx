@@ -25,9 +25,6 @@ const ItemDetailContainer = () =>{
             }
             )
         }, [itemIdParams])
-     
-
-    console.log(productoIndividual);
 
     return(
     <>

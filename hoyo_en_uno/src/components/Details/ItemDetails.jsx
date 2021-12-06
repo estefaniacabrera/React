@@ -1,10 +1,19 @@
 import React from 'react';
 import { Col } from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount';
+import { useCartContext } from '../context/CartContext';
 
 
-const ItemDetails = ({ item }) => {
-    
+
+const ItemDetails =  ( {item} ) => {
+
+    const { cartList, agregarProducto } = useCartContext()
+
+    function onAdd(cant) {
+        agregarProducto({ item: item, cantidad: cant })
+    }
+    console.log(cartList)
+
     return (
         <>
             <Col>
@@ -23,10 +32,9 @@ const ItemDetails = ({ item }) => {
             </Col>
             <Col>
                 <br />
-                <ItemCount initialstock={item.stock} />                                 
+                <ItemCount onAdd={()=>onAdd()} initialstock={item.stock} />
             </Col></>
                 
     )
 }
 export default ItemDetails;
-//<img src={item.foto} alt={item.name} />
