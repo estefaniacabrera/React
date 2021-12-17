@@ -13,13 +13,16 @@ import {useState} from "react"
             setCount (count - 1)
         } 
      }
+    function quantityCount() {
+        onAdd(count)
+     }
 
     return (
         <div>
             <button type="button" className="btn btn-outline-success" onClick={SumProd}>+</button>
                 {count}
             <button type="button" className="btn btn-outline-success" onClick={Subtract}>-</button>
-            <button type="button" className="btn btn-success" onClick={onAdd}>Agregar al Carrito</button>
+            <button type="button" className="btn btn-success" onClick={quantityCount}>Agregar al Carrito</button>
         </div>
     )
 }

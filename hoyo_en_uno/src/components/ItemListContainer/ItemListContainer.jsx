@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemList from './ItemList';
-import getFetch from './getFetch';
+//import getFetch from './getFetch';
 import Load from './Load';
 import { useParams } from 'react-router-dom';
+import { getFirestore } from '../firebase/firebase';
 
 const ItemListContainer = () => {
 
@@ -12,20 +13,13 @@ const ItemListContainer = () => {
     const { catIdParams } = useParams();
 
     useEffect(() => {
-
-        if(catIdParams){
-        getFetch.then((data)=>{
-            setProductos(data.filter(prod => prod.categoria === catIdParams))
-        })
-          .catch((error)=>{console.log(error);})
-          .finally(()=>{setLoading(false)})
-      } else {
-        getFetch.then((data)=>{
-              setProductos(data)
-          })
-          .catch(error =>{console.log(error);})
-          .finally(()=>{setLoading(false)})
-    }
+        const db = getFirestore();
+        const dbQuery = db.collection('productos')
+        const dbQueryWhere =  catIdParams ? dbQuery.where('category', '==', catIdParams) : dbQuery
+        dbQueryWhere.get()
+        .then(data => setProductos(data.docs.map(item => ({ id: item.id, ...item.data() }))))
+        .catch(err => console.log(err))
+        .finally(() => setLoading(false))
     }, [catIdParams])
     
     return (

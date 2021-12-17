@@ -3,12 +3,14 @@ import { useCartContext } from "../context/CartContext"
 
 function Cart() {
 
-    const { cartList, vaciarCarrito } = useCartContext()
+    const { cartList, vaciarCarrito, precioTotal } = useCartContext()
     console.log(cartList)
 
     return (
         <div>
-            {cartList.map(({ item }, index) => <li key={index}> {item.name} { item.stock}</li>)  }
+            {cartList.map( item => <li key={item.id}>{item.cantidad}u - {item.name}</li>)  }
+            
+            <h2>El precio total es ${precioTotal()}</h2>
             <button onClick={() => vaciarCarrito()}>Vaciar Carrito</button>
         </div>
     )

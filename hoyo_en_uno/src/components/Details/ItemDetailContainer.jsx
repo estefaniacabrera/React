@@ -1,30 +1,30 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import getFetch from '../ItemListContainer/getFetch';
+//import getFetch from '../ItemListContainer/getFetch';
 import Load from '../ItemListContainer/Load';
 import ItemDetails from './ItemDetails';
-
+import { getFirestore } from '../firebase/firebase'
+import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () =>{
     
     const [productoIndividual, setProductoIndividual]= useState({});
     const [loading, setLoading] = useState(true);
-    const { itemIdParams } = useParams();
-
-      useEffect(() => {
-
-          getFetch.then((data) => {
-              setProductoIndividual(data.find(prod => prod.id === parseInt(itemIdParams))) 
-          })
-            .catch((error)=>{
-                console.log(error);
+    const { idProducto } = useParams()
+    
+    useEffect(() => {
+        const db = getFirestore();
+        const dbQuery = db.collection('productos')
+        dbQuery.doc(idProducto).get()
+            .then(res => {   
+                setProductoIndividual({ id: res.id, ...res.data() })
+                console.log(res);
             })
-            .finally(()=>{
-                setLoading(false)
-            }
-            )
-        }, [itemIdParams])
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+         // eslint-disable-next-line 
+    },[idProducto])
+
 
     return(
     <>
