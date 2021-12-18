@@ -8,7 +8,7 @@ export const  useCartContext =()=> useContext(CartContext)
 function CartContextProvider({ children }) {
 
     const [cartList, setCartList] = useState([])
-    
+
     const vaciarCarrito=()=>{
         setCartList([])
     }
@@ -16,6 +16,10 @@ function CartContextProvider({ children }) {
     const precioTotal =()=>{
         return cartList.reduce((acum, valor)=>(acum + (valor.cantidad * valor.price)), 0) 
     }
+    const itemsCarrito =()=>{
+        return cartList.reduce((acum, valor)=>(acum + (valor.cantidad * 1)), 0) 
+    }
+
     const cantidadProducto = () =>{
         return cartList.reduce( (acum, item)=> acum = acum + item.cantidad , 0)
     }
@@ -41,6 +45,7 @@ function CartContextProvider({ children }) {
             vaciarCarrito,
             precioTotal,
             cantidadProducto,
+            itemsCarrito
         }}>
             { children }
         </CartContext.Provider>

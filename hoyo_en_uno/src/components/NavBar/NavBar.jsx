@@ -1,9 +1,10 @@
 import BagWidget from "./BagWidget"
 import { Link } from 'react-router-dom';
 import "./NavBar.css"
-
+import { useCartContext } from "../context/CartContext"
 
 const NavBar = () => {
+    const { itemsCarrito } = useCartContext()
     return (
         <nav id="navbar">
             <ul >
@@ -25,6 +26,9 @@ const NavBar = () => {
                 <li>
                     <Link to="/cart">
                         <BagWidget />
+                        
+                        {itemsCarrito()}
+
                     </Link> 
                 </li>
             </ul>
