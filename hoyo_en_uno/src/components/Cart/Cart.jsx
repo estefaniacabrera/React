@@ -1,9 +1,10 @@
 import { useCartContext } from "../context/CartContext"
+import { Link } from 'react-router-dom';
 
 
 function Cart() {
 
-    const { cartList, vaciarCarrito, precioTotal, itemsCarrito } = useCartContext()
+    const { botonCarrito, cartList, vaciarCarrito, precioTotal, itemsCarrito } = useCartContext()
     console.log(cartList)
 
     return (
@@ -12,7 +13,16 @@ function Cart() {
             
             <h2>El precio total es ${precioTotal()}</h2>
             <h2>Cantidad {itemsCarrito()}</h2>
-            <button onClick={() => vaciarCarrito()}>Vaciar Carrito</button>
+            <br />
+            <h3>Nombre<input type="text" /></h3>
+            <br />
+            <br />
+            <h3>Apellido<input type="text" /></h3>
+            <br />
+            <button onClick={() => vaciarCarrito()}>
+                <Link to="/">{botonCarrito}</Link>
+            </button>
+            
         </div>
     )
 }

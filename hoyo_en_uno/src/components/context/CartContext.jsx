@@ -8,9 +8,14 @@ export const  useCartContext =()=> useContext(CartContext)
 function CartContextProvider({ children }) {
 
     const [cartList, setCartList] = useState([])
+    const [botonCarrito, setBoton] = useState('Vaciar carrito')
 
     const vaciarCarrito=()=>{
         setCartList([])
+        setBoton('Seguir comprando')
+    }
+    const cambioBoton=()=>{
+        setBoton('Seguir comprando')
     }
 
     const precioTotal =()=>{
@@ -40,7 +45,9 @@ function CartContextProvider({ children }) {
 
     return(
         <CartContext.Provider value={{
-            cartList, 
+            botonCarrito,
+            cambioBoton,
+            cartList,
             agregarProducto,
             vaciarCarrito,
             precioTotal,
