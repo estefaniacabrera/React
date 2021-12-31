@@ -5,6 +5,7 @@ import Load from '../ItemListContainer/Load';
 import ItemDetails from './ItemDetails';
 import { getFirestore } from '../firebase/firebase'
 import { useParams } from 'react-router-dom';
+import { Col } from 'react-bootstrap';
 
 const ItemDetailContainer = () =>{
     
@@ -28,13 +29,13 @@ const ItemDetailContainer = () =>{
 
     return(
     <>
-        <div>
+        <Col className="mb-3 ms-5 me-5">
                 {loading
                 ? 
             <Load/> 
                 : 
                     <ItemDetails item={productoIndividual}/> }
-        </div>
+        </Col>
     </>
     )
     };

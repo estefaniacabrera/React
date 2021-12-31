@@ -1,5 +1,4 @@
 import {useState } from 'react'
-import { Col } from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount';
 import { useCartContext } from '../context/CartContext';
 
@@ -18,29 +17,22 @@ const ItemDetails =  ( {item} ) => {
 
     return (
         <>
-            <Col>
-                <div className='card w-90'>
-                    <div className="container">
-                        <label>{item.name}</label>
+                <div className="card mb-3 text-center">
+                    <div className="row g-0">
+                        <div className="col-md-4">
+                            <img src={item.foto} className="img-fluid rounded-start" alt={item.name}></img>
+                        </div>
+                        <div className="col-md-8 mt-5">
+                            <div className="card-body">
+                                <h5 className="card-title">{item.name}</h5>
+                                <p className="card-text">{item.description}</p>
+                                <p className="card-text"><small class="text-muted">${item.price}.-</small></p>
+                                <br />
+                                <ItemCount onAdd={onAdd} count={count} initialstock={item.stock}/>
+                            </div>
+                        </div>
                     </div>
-                    <br />
-                    <div className="container">
-                    <img src={item.foto} className="w-25" alt={item.foto} />
-                    <br />
-                    </div>
-                    <div className="container">
-                        <label>{item.description}</label>
-                    </div>
-                    <div className="container">
-                        <label>${item.price}</label>
-                    </div>
-                </div>
-            </Col>
-            <Col>
-                <br />
-                <ItemCount onAdd={onAdd} count={count} initialstock={item.stock}/>
-
-            </Col></>
+                </div></>
                 
     )
 }

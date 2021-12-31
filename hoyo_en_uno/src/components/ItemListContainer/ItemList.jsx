@@ -1,16 +1,17 @@
 import React from "react";
+import { Row } from "react-bootstrap";
 import Item from "./Item";
 
 const ItemList = (props) => {
    
     return (
-        <div>
+        <Row>
             {props.lista.map((item, index) => {
                 return (
                     <Item key={index} item={item} />
                 )
             })}
-        </div>
+        </Row >
     )
 }
 export default ItemList;

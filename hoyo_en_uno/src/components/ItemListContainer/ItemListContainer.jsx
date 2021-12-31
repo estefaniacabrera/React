@@ -5,6 +5,7 @@ import ItemList from './ItemList';
 import Load from './Load';
 import { useParams } from 'react-router-dom';
 import { getFirestore } from '../firebase/firebase';
+import { Container } from 'react-bootstrap';
 
 const ItemListContainer = () => {
 
@@ -23,11 +24,11 @@ const ItemListContainer = () => {
     }, [catIdParams])
     
     return (
-        <><div>
+        <><Container> 
             {loading ? <Load /> :
                 <ItemList lista = {productos} />
             }
-        </div></>
+        </Container></>
         
 
     )
