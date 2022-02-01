@@ -4,7 +4,7 @@ Mi proyecto es un Ecommerce dedicado a la venta de artículos de golf realizado 
 
 Para el proyecto se ha realizado una tienda de artículos de golf, en la cual podemos encontrar productos básicos, palos y accesorios utilizados para realizar este deporte,
 
-El mapa de navegación de la web es: ⇥ Shop ⇥ detalle del producto ⇥ Carrito de compra ⇥ Fromulario de pedido ⇥ Confirmación de compra
+El mapa de navegación de la web es: ⇥ Shop ⇥  Detalle del Producto ⇥ Carrito de compra ⇥ Confirmación de compra
 
 ## Tecnologías utilizadas:
 * React.js
