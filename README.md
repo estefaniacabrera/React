@@ -6,9 +6,9 @@ Para el proyecto se ha realizado una tienda de artículos de golf, en la cual po
 
 El mapa de navegación de la web es: ⇥ Shop ⇥ detalle del producto ⇥ Carrito de compra ⇥ Fromulario de pedido ⇥ Confirmación de compra
 
-Tecnologías utilizadas:
-React.js
-Javascript
-Firebase
-Html
-Css
+## Tecnologías utilizadas:
+* React.js
+* Javascript
+* Firebase
+* Html
+* Css
